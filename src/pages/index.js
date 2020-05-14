@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import { graphql, Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 export default ({ data }) => {
   return (
@@ -19,7 +20,8 @@ export default ({ data }) => {
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
-            <Link
+            <AniLink
+              cover
               to={node.fields.slug}
               css={css`
                 text-decoration: none;
@@ -41,7 +43,7 @@ export default ({ data }) => {
                 </span>
               </h3>
               <p>{node.excerpt}</p>
-            </Link>
+            </AniLink>
           </div>
         ))}
       </div>

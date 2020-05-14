@@ -2,6 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { rhythm } from "../utils/typography.js"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(
@@ -24,7 +25,7 @@ const Layout = ({ children }) => {
         padding-top: ${rhythm(1.5)};
       `}
     >
-      <Link to="/">
+      <AniLink cover to="/">
         <h3
           css={css`
             margin-bottom: ${rhythm(2)};
@@ -34,15 +35,16 @@ const Layout = ({ children }) => {
         >
           {data.site.siteMetadata.title}
         </h3>
-      </Link>
-      <Link
+      </AniLink>
+      <AniLink
+        cover
         to="/about/"
         css={css`
           float: right;
         `}
       >
         About
-      </Link>
+      </AniLink>
       {children}
     </div>
   )
