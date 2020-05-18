@@ -4,10 +4,12 @@ import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import { graphql, Link } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   return (
     <Layout>
+      <SEO title={"Home"} />
       <div>
         <h1
           css={css`
